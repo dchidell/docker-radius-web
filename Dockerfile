@@ -18,5 +18,5 @@ ADD clients.conf /etc/raddb/clients.conf
 ADD users /etc/raddb/users
 ADD radiusd.conf /etc/raddb/radiusd.conf
 RUN chmod -R o-w /etc/raddb/
-ENTRYPOINT ["webproc","--on-exit","restart","-c","/etc/raddb/users,/etc/raddb/clients.conf,etc/raddb/radiusd.conf","--","radiusd","-f","-l","stdout"]
+ENTRYPOINT ["webproc","--on-exit","restart","-c","/etc/raddb/users","/etc/raddb/clients.conf","etc/raddb/radiusd.conf","--","radiusd","-f","-l","stdout"]
 EXPOSE 1812/udp 8080
